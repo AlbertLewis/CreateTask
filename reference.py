@@ -84,7 +84,7 @@ class Individual(object):
 
 # Driver code 
 def main(): 
-	global POPULATION_SIZE 
+	global POPULATION_SIZE
 
 	#current generation 
 	generation = 1

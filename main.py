@@ -13,10 +13,13 @@ target_path = 'rruuru'
 
 class Individual(object):
 
-    def __init__(self):
-        self.chromosome = self.create_chromosome()
+    def __init__(self, chromosome = 'empty'):
 
-        # Find starting spot 's'
+        self.chromosome = list(chromosome)
+        if chromosome == 'empty':
+            self.chromosome = self.create_chromosome()
+
+        # Find starting spot "s"
         for i in range(len(map)):
             for j in range(len(map[0])):
                 if map[i][j] == 's':
@@ -79,6 +82,7 @@ class Individual(object):
 
         map[self.positionY][self.positionX] = 's'
 
+
 def mate(individual1, individual2):
 
     child_chromosome = []
@@ -99,6 +103,9 @@ def main():
     get the best and have them mate until they reach the end
     print out the best individual from each generation
     '''
+
+    deven = Individual()
+    print("deven " + str(deven.chromosome))
 
     bruh1 = Individual()
     bruh2 = Individual()
