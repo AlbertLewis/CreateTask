@@ -57,32 +57,29 @@ class Individual(object):
 
     def move(self):
 
-        map[self.positionY][self.positionX] = 0
-
         for movement in self.chromosome:
-            print('Position x: ' + str(self.positionX))
-            print('Position y: ' + str(self.positionY))
-            print()
 
-            if 0 <= self.positionX <= 4 and 0 <= self.positionY <= 3:  
-                moveX = self.positionX
-                moveY = self.positionY
+            try:
+                changeX = 0
+                changeY = 0
 
                 if movement == 'u':
-                    moveY -= 1
+                    changeY -= 1
                 elif movement == 'd':
-                    moveY += 1
+                    changeY += 1
                 elif movement == 'l':
-                    moveX -= 1
+                    changeX -= 1
                 elif movement == 'r':
-                    moveX += 1
+                    changeX += 1
 
-                if 0 <= moveX <= 4 and 0 <= moveY <= 3 and map[moveY][moveX] != 1:
-                    self.positionX = moveX
-                    self.positionY = moveY
+                if map[self.positionY][self.positionX] == 1:
+                    break
 
-        map[self.positionY][self.positionX] = 's'
+                self.positionX += changeX
+                self.positionY += changeY
 
+            except:
+                pass           
 
 def mate(individual1, individual2):
 
