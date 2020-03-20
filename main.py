@@ -93,8 +93,8 @@ def mate(individual1, individual2):
 
     return child_chromosome
 
-def main():
-
+if __name__ == "__main__":
+    
     # create initial population
     population = []
 
@@ -152,6 +152,3 @@ def main():
             print('[' + str(map[i][j]) + ']', end =' ')
         print()
     
-
-if __name__ == "__main__":
-    main()
